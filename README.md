@@ -20,9 +20,9 @@ Para este projeto, optei pelas seguintes ferramentas:
 
 - O usuário tem acesso a um browser.
 
-- O usuário possui conhecimento em PostgreSQL, e está configurado em sua máquina.
+- O desenvolvedor possui conhecimento em PostgreSQL, e está configurado em sua máquina.
 
-- Os usuário possui NodeJS instalado em sua máquina, e sabe iniciar projetos de terceiros.
+- Os desenvolvedor possui NodeJS instalado em sua máquina, e sabe iniciar projetos de terceiros.
 
 ## Decisões de projeto
 
