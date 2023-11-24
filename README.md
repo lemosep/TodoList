@@ -62,7 +62,7 @@ $ git clone https://github.com/lemosep/TodoList.git
 Depois disso, navegue até o diretório do projeto:
 
 ```bash
-$ cd  todoList
+$ cd  TodoList
 ```
 
 #### Instalando as dependências necessárias
