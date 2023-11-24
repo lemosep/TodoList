@@ -8,7 +8,7 @@ Para este projeto, optei pelas seguintes ferramentas:
 
 - **Front End**:
   - JavaScript
-  - Templating com [Handlebars](https://handlebarsjs.com/guide/#what-is-handlebars).
+  - Templating com [Pug]().
 - **Back-End**:
   - JavaScript
     - Verificação de tipos com [Zod](https://zod.dev/?id=introduction);
