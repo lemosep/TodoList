@@ -2,8 +2,8 @@ import { Router } from "express";
 import { z } from "zod";
 import { PrismaClient } from "@prisma/client";
 
-// logic for the todo routes
-const todoRouter = Router();
+// logic for the task routes
+const taskRouter = Router();
 const prisma = new PrismaClient();
 
 /* Validating fields
@@ -16,9 +16,9 @@ const bodyZod = z.object({
   date: z.string({ error: "Please type a valid date" }),
 });
 
-// GET all todos - return them sorted by date
-todoRouter.get("/", async (req, res) => {
-  const tasks = await prisma.todo.findMany({});
+// GET all tasks - return them sorted by date
+taskRouter.get("/", async (req, res) => {
+  const tasks = await prisma.task.findMany({});
 
   const sortedtasks = tasks.sort((a, b) => a.date - b.date);
 
@@ -34,8 +34,8 @@ todoRouter.get("/", async (req, res) => {
   return res.render("main", { tasks: sortedtasks });
 });
 
-// CREATE todo
-todoRouter.post("/todo", async (req, res) => {
+// CREATE task
+taskRouter.post("/todo", async (req, res) => {
   try {
     console.log("Received request body:", req.body);
 
@@ -51,7 +51,7 @@ todoRouter.post("/todo", async (req, res) => {
       throw new Error("Name and date are required fields.");
     }
 
-    const newTask = await prisma.todo.create({
+    await prisma.task.create({
       data: {
         name,
         date: new Date(date),
@@ -65,8 +65,8 @@ todoRouter.post("/todo", async (req, res) => {
   }
 });
 
-//DELETE todo
-todoRouter.post("/todo-delete", async (req, res) => {
+//DELETE task
+taskRouter.post("/task-delete", async (req, res) => {
   try {
     const { id } = req.body;
 
@@ -74,7 +74,7 @@ todoRouter.post("/todo-delete", async (req, res) => {
       throw new Error("ID is a required field.");
     }
 
-    const deletedTask = await prisma.todo.delete({
+    await prisma.task.delete({
       where: {
         id: Number(id),
       },
@@ -87,4 +87,4 @@ todoRouter.post("/todo-delete", async (req, res) => {
   }
 });
 
-export default todoRouter;
+export default taskRouter;

@@ -38,7 +38,7 @@ html
                             each t in taskList
                                 div(id=`task-${t.id}`, class="form-child")
                                     li= t.name
-                                    form(class="deleteForm", id=`deleteForm-${t.id}`, action="/todo-delete", method="POST")
+                                    form(class="deleteForm", id=`deleteForm-${t.id}`, action="/task-delete", method="POST")
                                         input(type="hidden" name="id" value=t.id)
                                         button(type="submit", class="form-btn", data-id=t.id) Delete
         else

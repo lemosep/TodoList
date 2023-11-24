@@ -1,6 +1,6 @@
-import express, { urlencoded } from "express";
-import todoRouter from "./routes/todo.js";
+import express from "express";
 import { rootPath, viewPath } from "./utils.js";
+import taskRouter from "./routes/task.js";
 
 const app = express();
 
@@ -11,7 +11,7 @@ app.set("views", viewPath());
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(todoRouter);
+app.use(taskRouter);
 
 app.use("/assets", express.static(rootPath("assets")));
 
