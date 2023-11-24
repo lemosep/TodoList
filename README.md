@@ -8,6 +8,7 @@ Para este projeto, optei pelas seguintes ferramentas:
 
 - **Front End**:
   - Templating com [Pug](https://pugjs.org/api/getting-started.html) para _Server-Side Rendering_.
+  - Estilização com CSS.
 - **Back-End**:
   - JavaScript
     - Framework [Express](https://expressjs.com/).
