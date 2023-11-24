@@ -6,4 +6,4 @@ const __dirname = dirname(__filename);
 
 export const rootPath = (...segments) => join(__dirname, "..", ...segments);
 // spread operation
-export const htmlPath = (...segments) => rootPath("src", "html", ...segments);
+export const viewPath = (...segments) => rootPath("src", "views", ...segments);

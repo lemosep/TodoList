@@ -6,7 +6,9 @@ Lista de lembretes feita em _raw_ JavaScript para processo seletivo da DTI digit
 
 Para este projeto, optei pelas seguintes ferramentas:
 
-- **Front End**: HTML cru, tenho medo de front vsf
+- **Front End**:
+  - JavaScript
+  - Templating com [Handlebars](https://handlebarsjs.com/guide/#what-is-handlebars).
 - **Back-End**:
   - JavaScript
     - Verificação de tipos com [Zod](https://zod.dev/?id=introduction);

@@ -1,0 +1,49 @@
+
+doctype html
+html
+    head
+        title Todo List
+        link(rel="stylesheet", href="/assets/css/main.css")
+    body
+        div(class="top")
+            h1 Welcome, Stay Focused! 🚀
+        form(id="todoForm", action="/todo", method="POST")
+            label(for="task") Add a new task:
+            br
+            br
+            input(type="text" id="name" name="name" placeholder="Enter task")
+            br
+            br
+            input(type="date" id="date" name="date" placeholder="Enter date")
+            br
+            br
+            button(type="submit", class="btn") Add
+        
+        if (tasks.length > 0)
+            div(class="current-tasks")
+                h1 Current Tasks:
+
+            - let groupedTasks = {};
+
+            each task in tasks
+                - let date = task.date;
+                - if (!groupedTasks[date]) 
+                    - groupedTasks[date] = [];
+                - groupedTasks[date].push({name:task.name, id:task.id});
+            .parent-container
+                each taskList, taskDate in groupedTasks
+                    div(class="form-container", id=`date-${taskDate}`)
+                        h2= taskDate 
+                        ul
+                            each t in taskList
+                                div(id=`task-${t.id}`, class="form-child")
+                                    li= t.name
+                                    form(class="deleteForm", id=`deleteForm-${t.id}`, action="/todo-delete", method="POST")
+                                        input(type="hidden" name="id" value=t.id)
+                                        button(type="submit", class="form-btn", data-id=t.id) Delete
+        else
+            h2 No tasks yet!
+    footer
+        p
+            | made with ❤ by 
+            a(href="http://github.com/lemosep") edu
